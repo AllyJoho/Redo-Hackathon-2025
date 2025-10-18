@@ -50,6 +50,7 @@ frontend/out/
 *.swo
 *.swn
 .DS_Store
+.venv
 
 # Logs
 logs/
