@@ -1,0 +1,24 @@
+{
+  "name": "byu-major-advisor",
+  "version": "1.0.0",
+  "description": "AI-powered chatbot for BYU students to explore and choose majors",
+  "scripts": {
+    "install-backend": "pip install -r requirements.txt",
+    "install-frontend": "cd frontend && npm install",
+    "start-backend": "python backend/app.py",
+    "start-frontend": "cd frontend && npm start",
+    "dev": "concurrently \"npm run start-backend\" \"npm run start-frontend\""
+  },
+  "keywords": [
+    "byu",
+    "major",
+    "advisor",
+    "chatbot",
+    "ai"
+  ],
+  "author": "AMIRUS Team",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

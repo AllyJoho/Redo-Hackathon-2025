@@ -1,0 +1,116 @@
+{
+  "majors": [
+    {
+      "id": "cs",
+      "name": "Computer Science",
+      "college": "Ira A. Fulton College of Engineering",
+      "description": "Focuses on software development, algorithms, data structures, and computational theory",
+      "interests": ["programming", "problem-solving", "technology", "mathematics", "innovation"],
+      "prerequisites": ["Math 112", "Math 113"],
+      "core_courses": ["CS 111", "CS 142", "CS 235", "CS 236", "CS 240", "CS 312", "CS 340"],
+      "total_credits": 120,
+      "career_paths": ["Software Engineer", "Data Scientist", "Web Developer", "AI Specialist"],
+      "average_salary": 95000,
+      "first_year_courses": ["CS 111", "Math 112", "English 115", "GE electives"]
+    },
+    {
+      "id": "business",
+      "name": "Business Management",
+      "college": "Marriott School of Business",
+      "description": "Prepares students for leadership roles in business and management",
+      "interests": ["leadership", "entrepreneurship", "finance", "communication", "strategy"],
+      "prerequisites": ["Math 110", "Econ 110"],
+      "core_courses": ["BUS 110", "BUS 220", "ACC 200", "FIN 201", "MKTG 310", "MGT 421"],
+      "total_credits": 120,
+      "career_paths": ["Business Manager", "Consultant", "Entrepreneur", "Financial Analyst"],
+      "average_salary": 75000,
+      "first_year_courses": ["BUS 110", "Econ 110", "Math 110", "English 115", "GE electives"]
+    },
+    {
+      "id": "psychology",
+      "name": "Psychology",
+      "college": "College of Family, Home, and Social Sciences",
+      "description": "Study of human behavior, mental processes, and psychological research",
+      "interests": ["human-behavior", "research", "helping-others", "science", "analysis"],
+      "prerequisites": ["Psych 111", "Math 108"],
+      "core_courses": ["Psych 111", "Psych 200", "Psych 301", "Psych 302", "Psych 312", "Psych 350"],
+      "total_credits": 120,
+      "career_paths": ["Clinical Psychologist", "Counselor", "Research Scientist", "HR Specialist"],
+      "average_salary": 70000,
+      "first_year_courses": ["Psych 111", "Math 108", "English 115", "Bio 100", "GE electives"]
+    },
+    {
+      "id": "mechanical-engineering",
+      "name": "Mechanical Engineering",
+      "college": "Ira A. Fulton College of Engineering",
+      "description": "Design and development of mechanical systems, machines, and energy systems",
+      "interests": ["design", "physics", "mathematics", "innovation", "hands-on-work"],
+      "prerequisites": ["Math 112", "Phys 121", "Chem 105"],
+      "core_courses": ["ME 101", "ME 208", "ME 303", "ME 340", "ME 360", "ME 470"],
+      "total_credits": 128,
+      "career_paths": ["Mechanical Engineer", "Product Designer", "Automotive Engineer", "Robotics Engineer"],
+      "average_salary": 85000,
+      "first_year_courses": ["Math 112", "Phys 121", "Chem 105", "ME 101", "English 115"]
+    },
+    {
+      "id": "nursing",
+      "name": "Nursing",
+      "college": "College of Nursing",
+      "description": "Prepares students to provide compassionate healthcare and patient advocacy",
+      "interests": ["healthcare", "helping-others", "science", "compassion", "critical-thinking"],
+      "prerequisites": ["Chem 105", "Bio 100", "Psych 111"],
+      "core_courses": ["NURS 220", "NURS 230", "NURS 320", "NURS 330", "NURS 420", "NURS 430"],
+      "total_credits": 120,
+      "career_paths": ["Registered Nurse", "Nurse Practitioner", "Clinical Nurse", "Healthcare Administrator"],
+      "average_salary": 77000,
+      "first_year_courses": ["Bio 100", "Chem 105", "Psych 111", "English 115", "GE electives"]
+    },
+    {
+      "id": "english",
+      "name": "English",
+      "college": "College of Humanities",
+      "description": "Study of literature, writing, rhetoric, and critical analysis",
+      "interests": ["reading", "writing", "literature", "communication", "creativity"],
+      "prerequisites": ["English 115"],
+      "core_courses": ["ENG 220", "ENG 230", "ENG 295", "ENG 330", "ENG 421", "ENG 495"],
+      "total_credits": 120,
+      "career_paths": ["Writer", "Editor", "Teacher", "Content Strategist", "Publishing Professional"],
+      "average_salary": 60000,
+      "first_year_courses": ["English 115", "ENG 220", "History 201", "GE electives"]
+    },
+    {
+      "id": "biology",
+      "name": "Biology",
+      "college": "College of Life Sciences",
+      "description": "Study of living organisms, life processes, and biological systems",
+      "interests": ["science", "research", "nature", "medicine", "discovery"],
+      "prerequisites": ["Bio 100", "Chem 105", "Math 112"],
+      "core_courses": ["Bio 100", "Bio 200", "Bio 305", "Bio 350", "Bio 420", "Bio 485"],
+      "total_credits": 120,
+      "career_paths": ["Biologist", "Research Scientist", "Medical School", "Biotechnology Specialist"],
+      "average_salary": 72000,
+      "first_year_courses": ["Bio 100", "Chem 105", "Math 112", "English 115", "GE electives"]
+    },
+    {
+      "id": "accounting",
+      "name": "Accounting",
+      "college": "Marriott School of Business",
+      "description": "Financial reporting, auditing, tax preparation, and financial analysis",
+      "interests": ["numbers", "detail-oriented", "finance", "problem-solving", "analysis"],
+      "prerequisites": ["Math 110", "Econ 110"],
+      "core_courses": ["ACC 200", "ACC 201", "ACC 310", "ACC 320", "ACC 410", "ACC 420"],
+      "total_credits": 120,
+      "career_paths": ["Accountant", "Auditor", "Tax Specialist", "Financial Analyst", "CPA"],
+      "average_salary": 73000,
+      "first_year_courses": ["ACC 200", "Math 110", "Econ 110", "English 115", "GE electives"]
+    }
+  ],
+  "common_ge_courses": [
+    "English 115",
+    "American Heritage 100",
+    "Religion courses",
+    "Arts courses",
+    "Social Science courses",
+    "Physical Science courses"
+  ]
+}
