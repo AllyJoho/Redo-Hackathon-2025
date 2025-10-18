@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BYU Major Advisor - Demo</title>
+    <style>
+        /* BYU Colors */
+        :root {
+            --byu-blue: #002E5D;
+            --byu-royal: #0062B8;
+            --byu-light-blue: #6E9ECF;
+            --byu-gray: #5C5C5C;
+            --byu-light-gray: #F5F5F5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--byu-light-gray);
+            color: var(--byu-gray);
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--byu-blue) 0%, var(--byu-royal) 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .chat-box {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .messages {
+            height: 400px;
+            overflow-y: auto;
+            margin-bottom: 1rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 1rem;
+        }
+
+        .message {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        .message.user {
+            background: var(--byu-blue);
+            color: white;
+            margin-left: 20%;
+        }
+
+        .message.assistant {
+            background: var(--byu-light-gray);
+            color: var(--byu-gray);
+            margin-right: 20%;
+        }
+
+        .input-area {
+            display: flex;
+            gap: 1rem;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 0.875rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        button {
+            padding: 0.875rem 2rem;
+            background: var(--byu-blue);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        button:hover {
+            background: var(--byu-royal);
+        }
+
+        .majors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .major-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .major-card h3 {
+            color: var(--byu-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .schedule {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .course {
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            background: var(--byu-light-gray);
+            border-radius: 8px;
+            border-left: 4px solid var(--byu-royal);
+        }
+
+        .suggested-questions {
+            display: grid;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .suggested-question {
+            padding: 1rem;
+            background: var(--byu-light-gray);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .suggested-question:hover {
+            background: var(--byu-light-blue);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🎓 BYU Major Advisor</h1>
+        <p>AI-powered guidance to help you discover the perfect major</p>
+    </div>
+
+    <div class="container">
+        <div class="chat-box">
+            <h2>Chat with Your AI Advisor</h2>
+            <div class="messages" id="messages">
+                <div class="message assistant">
+                    <strong>AI Advisor:</strong><br>
+                    Welcome! Tell me about your interests, and I'll help you find the perfect major at BYU.
+                </div>
+            </div>
+            <div class="suggested-questions">
+                <h3>Try asking:</h3>
+                <div class="suggested-question" onclick="sendQuestion('I love coding and solving complex problems')">
+                    I love coding and solving complex problems
+                </div>
+                <div class="suggested-question" onclick="sendQuestion('I want to help people and work in healthcare')">
+                    I want to help people and work in healthcare
+                </div>
+                <div class="suggested-question" onclick="sendQuestion('I am interested in business and entrepreneurship')">
+                    I am interested in business and entrepreneurship
+                </div>
+            </div>
+            <div class="input-area" style="margin-top: 1rem;">
+                <input type="text" id="userInput" placeholder="Type your message..." onkeypress="if(event.key==='Enter') sendMessage()">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+
+        <div id="majorsSection" style="display: none;">
+            <h2>Recommended Majors</h2>
+            <div class="majors-grid" id="majorsGrid"></div>
+            <button onclick="generateSchedule()" style="margin-top: 1rem;">Generate Schedule</button>
+        </div>
+
+        <div id="scheduleSection" style="display: none;" class="schedule">
+            <h2>📅 Your Optimized Schedule</h2>
+            <div id="scheduleContent"></div>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = 'http://localhost:5000/api';
+        let recommendedMajors = [];
+
+        async function sendMessage() {
+            const input = document.getElementById('userInput');
+            const message = input.value.trim();
+            if (!message) return;
+            
+            sendQuestion(message);
+            input.value = '';
+        }
+
+        async function sendQuestion(message) {
+            const messagesDiv = document.getElementById('messages');
+            
+            // Add user message
+            messagesDiv.innerHTML += `
+                <div class="message user">
+                    <strong>You:</strong><br>${message}
+                </div>
+            `;
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+
+            try {
+                const response = await fetch(`${API_URL}/chat`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message })
+                });
+                
+                const data = await response.json();
+                
+                // Add AI response
+                messagesDiv.innerHTML += `
+                    <div class="message assistant">
+                        <strong>AI Advisor:</strong><br>${data.response.replace(/\n/g, '<br>')}
+                    </div>
+                `;
+                messagesDiv.scrollTop = messagesDiv.scrollHeight;
+
+                // Show majors if recommended
+                if (data.major_details && data.major_details.length > 0) {
+                    recommendedMajors = data.recommended_majors;
+                    displayMajors(data.major_details);
+                }
+            } catch (error) {
+                messagesDiv.innerHTML += `
+                    <div class="message assistant">
+                        <strong>AI Advisor:</strong><br>Sorry, I encountered an error. Please try again.
+                    </div>
+                `;
+            }
+        }
+
+        function displayMajors(majors) {
+            const section = document.getElementById('majorsSection');
+            const grid = document.getElementById('majorsGrid');
+            
+            grid.innerHTML = majors.map(major => `
+                <div class="major-card">
+                    <h3>${major.name}</h3>
+                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 0.5rem;">${major.college}</p>
+                    <p style="margin-bottom: 1rem;">${major.description}</p>
+                    <p><strong>Career paths:</strong> ${major.career_paths.join(', ')}</p>
+                    <p><strong>Avg Salary:</strong> $${major.average_salary.toLocaleString()}</p>
+                    <p><strong>Total Credits:</strong> ${major.total_credits}</p>
+                </div>
+            `).join('');
+            
+            section.style.display = 'block';
+        }
+
+        async function generateSchedule() {
+            if (recommendedMajors.length === 0) return;
+
+            try {
+                const response = await fetch(`${API_URL}/schedule`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ majors: recommendedMajors, semester: 'Fall' })
+                });
+                
+                const data = await response.json();
+                
+                const section = document.getElementById('scheduleSection');
+                const content = document.getElementById('scheduleContent');
+                
+                content.innerHTML = `
+                    <p style="margin-bottom: 1rem;"><strong>Optimized for:</strong> ${data.majors_considered.join(', ')}</p>
+                    ${data.schedule.map(course => `
+                        <div class="course">${course}</div>
+                    `).join('')}
+                    <div style="margin-top: 1.5rem; padding: 1rem; background: #f8f9fa; border-radius: 8px;">
+                        <strong>Why this schedule?</strong><br>
+                        ${data.reasoning.replace(/\n/g, '<br>')}
+                    </div>
+                `;
+                
+                section.style.display = 'block';
+                section.scrollIntoView({ behavior: 'smooth' });
+            } catch (error) {
+                alert('Error generating schedule. Please try again.');
+            }
+        }
+    </script>
+</body>
+</html>
