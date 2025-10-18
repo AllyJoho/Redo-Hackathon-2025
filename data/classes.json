@@ -1,0 +1,392 @@
+[
+  {
+    "course_id": "ACC200",
+    "course_name": "ACC 200",
+    "title": "Principles of Accounting",
+    "credit_hours": 3.0,
+    "description": "Introduction to financial and managerial accounting concepts. Covers the accounting cycle, financial statements, and basic accounting principles for business decision-making.",
+    "prerequisites": "",
+    "category": "Business Foundation",
+    "applies_to_programs": [
+      "Information Systems (BS)",
+      "Finance (BS)",
+      "Accounting (BS)"
+    ]
+  },
+  {
+    "course_id": "ACC310",
+    "course_name": "ACC 310",
+    "title": "Principles of Accounting 2",
+    "credit_hours": 3.0,
+    "description": "Continuation of ACC 200. Advanced topics in financial accounting including assets, liabilities, stockholders' equity, and financial statement analysis.",
+    "prerequisites": "ACC 200",
+    "category": "Business Foundation",
+    "applies_to_programs": [
+      "Finance (BS)",
+      "Accounting (BS)"
+    ]
+  },
+  {
+    "course_id": "IS201",
+    "course_name": "IS 201",
+    "title": "Introduction to Information Systems",
+    "credit_hours": 3.0,
+    "description": "Overview of information systems in organizations. Topics include hardware, software, databases, networks, and the strategic use of technology in business.",
+    "prerequisites": "",
+    "category": "Business Foundation",
+    "applies_to_programs": [
+      "Information Systems (BS)",
+      "Finance (BS)",
+      "Accounting (BS)"
+    ]
+  },
+  {
+    "course_id": "ECON110",
+    "course_name": "ECON 110",
+    "title": "Economic Principles and Problems",
+    "credit_hours": 3.0,
+    "description": "Introduction to microeconomics and macroeconomics. Covers supply and demand, market structures, GDP, inflation, and economic policy.",
+    "prerequisites": "",
+    "category": "Business Foundation",
+    "applies_to_programs": [
+      "Information Systems (BS)",
+      "Finance (BS)",
+      "Accounting (BS)"
+    ]
+  },
+  {
+    "course_id": "FIN201",
+    "course_name": "FIN 201",
+    "title": "Principles of Finance",
+    "credit_hours": 3.0,
+    "description": "Introduction to corporate finance, including time value of money, capital budgeting, risk and return, and financial statement analysis.",
+    "prerequisites": "ACC 200",
+    "category": "Business Foundation",
+    "applies_to_programs": [
+      "Information Systems (BS)",
+      "Finance (BS)",
+      "Accounting (BS)"
+    ]
+  },
+  {
+    "course_id": "MKTG201",
+    "course_name": "MKTG 201",
+    "title": "Marketing Management",
+    "credit_hours": 3.0,
+    "description": "Introduction to marketing concepts including customer behavior, market segmentation, product development, pricing, and promotion strategies.",
+    "prerequisites": "",
+    "category": "Business Foundation",
+    "applies_to_programs": [
+      "Information Systems (BS)",
+      "Finance (BS)",
+      "Accounting (BS)"
+    ]
+  },
+  {
+    "course_id": "MCOM320",
+    "course_name": "M COM 320",
+    "title": "Management Communication",
+    "credit_hours": 3.0,
+    "description": "Development of professional communication skills including business writing, presentations, and interpersonal communication in organizational settings.",
+    "prerequisites": "",
+    "category": "Business Core",
+    "applies_to_programs": [
+      "Information Systems (BS)",
+      "Finance (BS)",
+      "Accounting (BS)"
+    ]
+  },
+  {
+    "course_id": "HRM391",
+    "course_name": "HRM 391",
+    "title": "Organizational Effectiveness",
+    "credit_hours": 3.0,
+    "description": "Study of organizational behavior, leadership, motivation, team dynamics, and organizational culture.",
+    "prerequisites": "",
+    "category": "Business Core",
+    "applies_to_programs": [
+      "Information Systems (BS)",
+      "Finance (BS)",
+      "Accounting (BS)"
+    ]
+  },
+  {
+    "course_id": "MSB390",
+    "course_name": "MSB 390",
+    "title": "Ethics for Management",
+    "credit_hours": 3.0,
+    "description": "Examination of ethical decision-making in business contexts. Covers ethical frameworks, corporate social responsibility, and moral reasoning.",
+    "prerequisites": "",
+    "category": "Business Core",
+    "applies_to_programs": [
+      "Information Systems (BS)",
+      "Finance (BS)"
+    ]
+  },
+  {
+    "course_id": "STRAT392",
+    "course_name": "STRAT 392",
+    "title": "Strategy and Economics",
+    "credit_hours": 3.0,
+    "description": "Strategic management and competitive analysis. Covers industry analysis, competitive advantage, and corporate strategy.",
+    "prerequisites": "",
+    "category": "Business Core",
+    "applies_to_programs": [
+      "Information Systems (BS)",
+      "Finance (BS)",
+      "Accounting (BS)"
+    ]
+  },
+  {
+    "course_id": "IS110",
+    "course_name": "IS 110",
+    "title": "Spreadsheet Skills and Business Analysis",
+    "credit_hours": 1.0,
+    "description": "Develop proficiency in spreadsheet software for business analysis including formulas, functions, charts, and data manipulation.",
+    "prerequisites": "",
+    "category": "Business Skills",
+    "applies_to_programs": [
+      "Information Systems (BS)",
+      "Finance (BS)",
+      "Accounting (BS)"
+    ]
+  },
+  {
+    "course_id": "MATH112",
+    "course_name": "MATH 112",
+    "title": "Calculus 1",
+    "credit_hours": 4.0,
+    "description": "Limits, derivatives, applications of derivatives, introduction to integration. Foundation for all STEM majors.",
+    "prerequisites": "Precalculus or placement",
+    "category": "Mathematics Core",
+    "applies_to_programs": [
+      "Computer Science (BS)",
+      "Computer Engineering (BS)",
+      "Mathematics (BS)",
+      "Mathematics (BS) - Applied & Computational",
+      "Statistics (BS) - Applied Statistics & Analytics",
+      "Applied Physics (BS)"
+    ]
+  },
+  {
+    "course_id": "MATH113",
+    "course_name": "MATH 113",
+    "title": "Calculus 2",
+    "credit_hours": 4.0,
+    "description": "Techniques of integration, applications of integration, sequences and series, parametric equations and polar coordinates.",
+    "prerequisites": "MATH 112",
+    "category": "Mathematics Core",
+    "applies_to_programs": [
+      "Computer Science (BS)",
+      "Computer Engineering (BS)",
+      "Mathematics (BS)",
+      "Mathematics (BS) - Applied & Computational",
+      "Statistics (BS) - Applied Statistics & Analytics",
+      "Applied Physics (BS)"
+    ]
+  },
+  {
+    "course_id": "MATH213",
+    "course_name": "MATH 213",
+    "title": "Elementary Linear Algebra",
+    "credit_hours": 2.0,
+    "description": "Systems of linear equations, matrices, determinants, vector spaces, eigenvalues and eigenvectors. Essential for computer science and engineering.",
+    "prerequisites": "MATH 112",
+    "category": "Mathematics Core",
+    "applies_to_programs": [
+      "Computer Science (BS)",
+      "Computer Engineering (BS)",
+      "Mathematics (BS)",
+      "Mathematics (BS) - Applied & Computational",
+      "Statistics (BS) - Applied Statistics & Analytics"
+    ]
+  },
+  {
+    "course_id": "MATH215",
+    "course_name": "MATH 215",
+    "title": "Computational Linear Algebra",
+    "credit_hours": 1.0,
+    "description": "Computational aspects of linear algebra using software. Numerical methods for solving linear systems and eigenvalue problems.",
+    "prerequisites": "MATH 213 (can be concurrent)",
+    "category": "Mathematics Core",
+    "applies_to_programs": [
+      "Computer Science (BS)",
+      "Computer Engineering (BS)",
+      "Mathematics (BS)",
+      "Mathematics (BS) - Applied & Computational",
+      "Statistics (BS) - Applied Statistics & Analytics"
+    ]
+  },
+  {
+    "course_id": "CS111",
+    "course_name": "CS 111",
+    "title": "Introduction to Computer Science",
+    "credit_hours": 3.0,
+    "description": "Introduction to programming using Python. Covers variables, control structures, functions, data structures, and problem-solving techniques.",
+    "prerequisites": "",
+    "category": "Computer Science Core",
+    "applies_to_programs": [
+      "Computer Science (BS)",
+      "Computer Engineering (BS)",
+      "Mathematics (BS)",
+      "Mathematics (BS) - Applied & Computational",
+      "Applied Physics (BS)"
+    ]
+  },
+  {
+    "course_id": "CS235",
+    "course_name": "CS 235",
+    "title": "Data Structures",
+    "credit_hours": 3.0,
+    "description": "Study of data structures including arrays, linked lists, stacks, queues, trees, hash tables, and graphs. Algorithm analysis and complexity.",
+    "prerequisites": "CS 111",
+    "category": "Computer Science Core",
+    "applies_to_programs": [
+      "Computer Science (BS)",
+      "Computer Engineering (BS)"
+    ]
+  },
+  {
+    "course_id": "CS236",
+    "course_name": "CS 236",
+    "title": "Discrete Structures",
+    "credit_hours": 3.0,
+    "description": "Mathematical foundations of computer science including logic, sets, relations, functions, graphs, and proof techniques.",
+    "prerequisites": "CS 111",
+    "category": "Computer Science Core",
+    "applies_to_programs": [
+      "Computer Science (BS)",
+      "Computer Engineering (BS)"
+    ]
+  },
+  {
+    "course_id": "STAT121",
+    "course_name": "STAT 121",
+    "title": "Introduction to Statistical Data Analysis",
+    "credit_hours": 3.0,
+    "description": "Introduction to statistical thinking and data analysis. Covers descriptive statistics, probability, hypothesis testing, and regression. Used across many majors.",
+    "prerequisites": "",
+    "category": "Statistics Core",
+    "applies_to_programs": [
+      "Information Systems (BS)",
+      "Finance (BS)",
+      "Statistics (BS) - Applied Statistics & Analytics",
+      "Computer Science (BS)"
+    ]
+  },
+  {
+    "course_id": "STAT201",
+    "course_name": "STAT 201",
+    "title": "Statistics for Engineers and Scientists",
+    "credit_hours": 3.0,
+    "description": "Statistical methods for engineering and science. Probability distributions, hypothesis testing, regression, and design of experiments.",
+    "prerequisites": "MATH 112",
+    "category": "Statistics Core",
+    "applies_to_programs": [
+      "Computer Engineering (BS)",
+      "Mathematics (BS)",
+      "Computer Science (BS)"
+    ]
+  },
+  {
+    "course_id": "PHSCS121",
+    "course_name": "PHSCS 121",
+    "title": "Introduction to Newtonian Mechanics",
+    "credit_hours": 3.0,
+    "description": "Mechanics including kinematics, dynamics, energy, momentum, rotation, and gravitation. Calculus-based physics for STEM majors.",
+    "prerequisites": "MATH 112 (concurrent enrollment allowed)",
+    "category": "Physics Core",
+    "applies_to_programs": [
+      "Computer Science (BS)",
+      "Computer Engineering (BS)",
+      "Applied Physics (BS)"
+    ]
+  },
+  {
+    "course_id": "PHSCS220",
+    "course_name": "PHSCS 220",
+    "title": "Introduction to Electricity and Magnetism",
+    "credit_hours": 3.0,
+    "description": "Electrostatics, electric fields, magnetic fields, electromagnetic induction, and circuits. Essential for engineering students.",
+    "prerequisites": "PHSCS 121, MATH 113",
+    "category": "Physics Core",
+    "applies_to_programs": [
+      "Computer Engineering (BS)",
+      "Applied Physics (BS)"
+    ]
+  },
+  {
+    "course_id": "IS402",
+    "course_name": "IS 402",
+    "title": "Database Systems",
+    "credit_hours": 3.0,
+    "description": "Database design, SQL, normalization, and database management systems. Hands-on experience with relational databases.",
+    "prerequisites": "IS 201",
+    "category": "Information Systems",
+    "applies_to_programs": [
+      "Information Systems (BS)"
+    ]
+  },
+  {
+    "course_id": "FIN400",
+    "course_name": "FIN 400",
+    "title": "Analytical Methods in Finance",
+    "credit_hours": 3.0,
+    "description": "Quantitative methods for financial analysis including optimization, simulation, and decision analysis.",
+    "prerequisites": "FIN 201, STAT 121",
+    "category": "Finance",
+    "applies_to_programs": [
+      "Finance (BS)"
+    ]
+  },
+  {
+    "course_id": "ACC402",
+    "course_name": "ACC 402",
+    "title": "Cost and Managerial Accounting",
+    "credit_hours": 3.0,
+    "description": "Cost accounting systems, budgeting, performance measurement, and decision-making for managers.",
+    "prerequisites": "ACC 310",
+    "category": "Accounting",
+    "applies_to_programs": [
+      "Accounting (BS)"
+    ]
+  },
+  {
+    "course_id": "CS240",
+    "course_name": "CS 240",
+    "title": "Advanced Software Construction",
+    "credit_hours": 4.0,
+    "description": "Software development principles, object-oriented programming, testing, debugging, and version control. Extensive programming projects.",
+    "prerequisites": "CS 111",
+    "category": "Computer Science",
+    "applies_to_programs": [
+      "Computer Science (BS)",
+      "Computer Engineering (BS)"
+    ]
+  },
+  {
+    "course_id": "MATH314",
+    "course_name": "MATH 314",
+    "title": "Calculus of Several Variables",
+    "credit_hours": 3.0,
+    "description": "Multivariable calculus including partial derivatives, multiple integrals, vector calculus, and applications.",
+    "prerequisites": "MATH 113",
+    "category": "Mathematics",
+    "applies_to_programs": [
+      "Mathematics (BS)",
+      "Mathematics (BS) - Applied & Computational"
+    ]
+  },
+  {
+    "course_id": "STAT240",
+    "course_name": "STAT 240",
+    "title": "Probability and Inference 1",
+    "credit_hours": 3.0,
+    "description": "Mathematical foundations of probability theory. Random variables, distributions, expectation, and moment generating functions.",
+    "prerequisites": "MATH 112, STAT 121",
+    "category": "Statistics",
+    "applies_to_programs": [
+      "Statistics (BS) - Applied Statistics & Analytics"
+    ]
+  }
+]
