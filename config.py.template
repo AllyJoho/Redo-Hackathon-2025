@@ -1,0 +1,44 @@
+"""
+Configuration file template for API keys and settings.
+Copy this to config.py and add your actual API keys.
+"""
+
+# ========================================
+# 🔑 PUT YOUR API KEY HERE
+# ========================================
+
+# Option 1: OpenAI API Key (Recommended)
+# Get your key from: https://platform.openai.com/api-keys
+OPENAI_API_KEY = "your-openai-api-key-here"
+
+# Option 2: Anthropic API Key (Alternative)
+# Get your key from: https://console.anthropic.com/
+ANTHROPIC_API_KEY = "your-anthropic-api-key-here"
+
+# ========================================
+# Model Settings
+# ========================================
+
+# Which provider to use: "openai" or "anthropic"
+AI_PROVIDER = "openai"
+
+# Model selection (affects cost and quality)
+OPENAI_MODEL = "gpt-4o-mini"  # Cheap & fast - perfect for hackathon
+# OPENAI_MODEL = "gpt-4o"      # More expensive but better quality
+
+ANTHROPIC_MODEL = "claude-3-5-sonnet-20241022"  # If using Anthropic
+
+# ========================================
+# System Settings
+# ========================================
+
+# Temperature (0.0 = deterministic, 1.0 = creative)
+TEMPERATURE = 0.2
+
+# Max tokens for responses
+MAX_TOKENS = 1000
+
+# Enable/disable LLM enhancements
+USE_LLM_FOR_PLANNING = True      # Use AI to understand student input
+USE_LLM_FOR_EXPLANATIONS = True   # Use AI for natural language explanations
+USE_LLM_FOR_FOLLOWUP = True      # Enable conversational follow-ups
