@@ -1,0 +1,15 @@
+# BYU Course Advisor - Production Dependencies
+# Multi-agent conversational AI system for undecided students
+
+# Core AI/ML
+chromadb>=0.4.22          # Vector database for semantic search
+sentence-transformers>=2.2.2  # Local embeddings (no API needed)
+openai>=1.0.0             # GPT integration for enhanced responses
+anthropic>=0.7.0          # Claude integration (alternative to GPT)
+
+# Web Framework
+streamlit>=1.29.0         # Interactive web UI
+
+# Data Processing
+numpy>=1.24.0
+pandas>=2.0.0
