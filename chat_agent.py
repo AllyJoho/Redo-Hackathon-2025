@@ -162,15 +162,18 @@ Top recommended courses:
                 "content": message
             })
             
-            # Call OpenAI API
-            response = client.chat.completions.create(
-                model="gpt-4o-mini",
-                messages=api_messages,
-                max_tokens=200,
-                temperature=0.7
-            )
-            
-            return response.choices[0].message.content.strip()
+            # Call OpenAI API only if client is available
+            if client is not None:
+                response = client.chat.completions.create(
+                    model="gpt-4o-mini",
+                    messages=api_messages,
+                    max_tokens=200,
+                    temperature=0.7
+                )
+                content = response.choices[0].message.content
+                return content.strip() if content is not None else ""
+            else:
+                raise RuntimeError("OpenAI client is not available.")
             
         except Exception as e:
             print(f"AI generation error: {e}")

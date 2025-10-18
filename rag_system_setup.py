@@ -7,7 +7,6 @@ import json
 from pathlib import Path
 from typing import List, Dict
 import chromadb
-from chromadb.config import Settings
 from sentence_transformers import SentenceTransformer
 
 class BYUCourseRAG:
@@ -80,7 +79,7 @@ class BYUCourseRAG:
         # Delete existing collection if it exists
         try:
             self.client.delete_collection("programs")
-        except:
+        except Exception:
             pass
         
         collection = self.client.create_collection(
@@ -134,7 +133,7 @@ class BYUCourseRAG:
         
         try:
             self.client.delete_collection("classes")
-        except:
+        except Exception:
             pass
         
         collection = self.client.create_collection(
@@ -193,7 +192,7 @@ class BYUCourseRAG:
         
         try:
             self.client.delete_collection("overlap")
-        except:
+        except Exception:
             pass
         
         collection = self.client.create_collection(
@@ -274,18 +273,25 @@ class BYUCourseRAG:
                 n_results=3
             )
             
-            if results['documents'][0]:
+            documents = results.get('documents')
+            metadatas = results.get('metadatas')
+            if (
+                documents is not None and len(documents) > 0 and documents[0]
+                and metadatas is not None and len(metadatas) > 0 and metadatas[0]
+            ):
                 print("   Top Recommendations:")
-                for j, (doc, metadata) in enumerate(zip(results['documents'][0], 
-                                                        results['metadatas'][0]), 1):
+                for j, (doc, metadata) in enumerate(zip(documents[0], 
+                                                        metadatas[0]), 1):
                     course_name = metadata.get('course_name', 'Unknown')
                     title = metadata.get('title', 'Unknown')
                     prog_count = metadata.get('program_count', 0)
                     print(f"   {j}. {course_name} - {title}")
                     print(f"      → Applies to {prog_count} majors")
     
+    from typing import Optional
+
     def get_recommendations(self, student_interests: str, 
-                           considering_majors: List[str] = None,
+                           considering_majors: Optional[List[str]] = None,
                            n_results: int = 5) -> Dict:
         """
         Get course recommendations based on student interests.
@@ -318,14 +324,19 @@ class BYUCourseRAG:
             "explanation": ""
         }
         
-        for doc, metadata in zip(overlap_results['documents'][0], 
-                                overlap_results['metadatas'][0]):
-            recommendations["courses"].append({
-                "course_name": metadata['course_name'],
-                "title": metadata['title'],
-                "program_count": metadata['program_count'],
-                "versatility_score": metadata['versatility_score']
-            })
+        documents = overlap_results.get('documents')
+        metadatas = overlap_results.get('metadatas')
+        if (
+            documents is not None and len(documents) > 0 and documents[0]
+            and metadatas is not None and len(metadatas) > 0 and metadatas[0]
+        ):
+            for doc, metadata in zip(documents[0], metadatas[0]):
+                recommendations["courses"].append({
+                    "course_name": metadata['course_name'],
+                    "title": metadata['title'],
+                    "program_count": metadata['program_count'],
+                    "versatility_score": metadata['versatility_score']
+                })
         
         return recommendations
 

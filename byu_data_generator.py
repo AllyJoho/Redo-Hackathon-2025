@@ -506,16 +506,16 @@ def generate_byu_course_data():
     print("=" * 70)
     print("✓ BYU COURSE DATA GENERATION COMPLETE!")
     print("=" * 70)
-    print(f"\n📊 STATISTICS:")
+    print("\n📊 STATISTICS:")
     print(f"   • {len(programs_data)} programs")
     print(f"   • {len(classes_data)} unique classes")
     print(f"   • {len(class_overlap_data)} multi-major classes")
-    print(f"\n📁 FILES CREATED:")
-    print(f"   • data/programs.json")
-    print(f"   • data/classes.json")
-    print(f"   • data/class_overlap.json")
+    print("\n📁 FILES CREATED:")
+    print("   • data/programs.json")
+    print("   • data/classes.json")
+    print("   • data/class_overlap.json")
     
-    print(f"\n🎯 TOP 5 MOST VERSATILE CLASSES:")
+    print("\n🎯 TOP 5 MOST VERSATILE CLASSES:")
     for i, cls in enumerate(class_overlap_data[:5], 1):
         programs_str = ", ".join(cls["applies_to_programs"][:3])
         if len(cls["applies_to_programs"]) > 3:
@@ -523,7 +523,7 @@ def generate_byu_course_data():
         print(f"   {i}. {cls['course_name']} - {cls['title']}")
         print(f"      Applies to {cls['program_count']} programs: {programs_str}")
     
-    print(f"\n💡 PROGRAM CATEGORIES:")
+    print("\n💡 PROGRAM CATEGORIES:")
     categories = {}
     for prog in programs_data:
         cat = prog["program_category"]

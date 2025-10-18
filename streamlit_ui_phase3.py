@@ -6,19 +6,11 @@ Real conversational experience with context awareness
 import streamlit as st
 import time
 
-# Try to import Phase systems
-try:
-    from agentic_chatbot_phase2 import Phase2AgenticCourseAdvisor, StudentProfile
-    from chat_agent import ChatAgent
-    PHASE3_AVAILABLE = True
-except ImportError:
-    try:
-        from agentic_chatbot_enhanced import EnhancedAgenticCourseAdvisor as Phase2AgenticCourseAdvisor, StudentProfile
-        from chat_agent import ChatAgent
-        PHASE3_AVAILABLE = True
-    except ImportError:
-        from agentic_chatbot import AgenticCourseAdvisor as Phase2AgenticCourseAdvisor, StudentProfile
-        PHASE3_AVAILABLE = False
+# Import Phase 2 & 3 systems
+from agentic_chatbot_phase2 import Phase2AgenticCourseAdvisor, StudentProfile
+from chat_agent import ChatAgent
+
+PHASE3_AVAILABLE = True
 
 # Page configuration
 st.set_page_config(
@@ -394,29 +386,41 @@ if "results" in st.session_state:
     else:
         st.header("📚 Your Course Recommendations")
     
-    for i, rec in enumerate(results["recommendations"][:5], 1):
-        majors_list = ", ".join(rec.get('applicable_majors', [])) if rec.get('applicable_majors') else "Multiple programs"
-        
-        score = rec.get('versatility_score', 0)
-        if score >= 80:
-            score_color = "🟢"
-            score_label = "Highly Versatile"
-        elif score >= 60:
-            score_color = "🟡"
-            score_label = "Moderately Versatile"
-        else:
-            score_color = "🟠"
-            score_label = "Specialized"
-        
-        st.markdown(f"""
-        <div class="course-card">
-            <div class="course-title">{i}. {rec['course_name']} - {rec['title']}</div>
-            <p style="color: #1a1a1a; margin: 0.8rem 0 0.5rem 0; line-height: 1.6; font-size: 1rem;">{rec['description']}</p>
-            <p style="color: #1a1a1a; margin: 0.4rem 0; font-size: 0.95rem;"><strong style="color: #002E5D;">{score_color} Versatility:</strong> {score:.0f}/100 ({score_label})</p>
-            <p style="color: #1a1a1a; margin: 0.4rem 0; font-size: 0.95rem;"><strong style="color: #002E5D;">🎯 Applies to:</strong> {rec.get('program_count', 0)} major(s) — {majors_list}</p>
-            <p style="color: #1a1a1a; margin: 0.4rem 0; font-size: 0.95rem;"><strong style="color: #002E5D;">✅ Prerequisites:</strong> {rec.get('prereq_status', 'Check with advisor')}</p>
-        </div>
-        """, unsafe_allow_html=True)
+    # Get recommendations - now a dict with programs, courses, overlap_courses
+    recs = results.get("recommendations", {})
+    
+    # Display programs
+    if recs.get("programs"):
+        st.subheader("🎓 Recommended Programs")
+        for i, program in enumerate(recs["programs"][:3], 1):
+            st.markdown(f"""
+            <div class="course-card">
+                <div class="course-title">{i}. {program}</div>
+            </div>
+            """, unsafe_allow_html=True)
+        st.divider()
+    
+    # Display courses
+    if recs.get("courses"):
+        st.subheader("📖 Recommended Courses")
+        for i, course in enumerate(recs["courses"][:5], 1):
+            st.markdown(f"""
+            <div class="course-card">
+                <div class="course-title">{i}. {course}</div>
+            </div>
+            """, unsafe_allow_html=True)
+    
+    # Display overlap courses if any
+    if recs.get("overlap_courses"):
+        st.divider()
+        st.subheader("🔗 Multi-Major Courses")
+        st.caption("These courses count toward multiple majors")
+        for i, course in enumerate(recs["overlap_courses"][:3], 1):
+            st.markdown(f"""
+            <div class="course-card">
+                <div class="course-title">{i}. {course}</div>
+            </div>
+            """, unsafe_allow_html=True)
     
     # Explanation (if not in chat mode)
     if not st.session_state.chat_mode:
